@@ -9,8 +9,10 @@ import Home from "./components/home";
 import reducers from "./reducers";
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(
-  compose(window.devToolsExtension ? window.devToolsExtension() : (f) => f)(
-    createStore
+  compose(
+    (window.devToolsExtension ? window.devToolsExtension() : (f) => f)(
+      createStore
+    )
   )
 );
 
